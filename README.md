@@ -36,7 +36,7 @@ Este proyecto permite registrar y visualizar diferentes tipos de equipos (Deskto
 
 ## Requisitos
 
-- Java SE 11 o superior.
+- Java SE 8 o superior.
 
 ## Contribuyentes
 
