@@ -46,6 +46,11 @@ public class Laptop extends Equipo{
     public void setCapacidadDiscoDuro(int capacidadDiscoDuro) {
         this.capacidadDiscoDuro = capacidadDiscoDuro;
     }
+
+    @Override
+    public String toString() {
+        return "Laptop{" + "memoria=" + memoria + ", tamanoPantalla=" + tamanoPantalla + ", capacidadDiscoDuro=" + capacidadDiscoDuro + '}';
+    }
     
     
 }

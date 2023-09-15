@@ -56,6 +56,10 @@ public class Tablet extends Equipo{
     public void setSistemaOperativo(String sistemaOperativo) {
         this.sistemaOperativo = sistemaOperativo;
     }
-    
-   
+
+    @Override
+    public String toString() {
+        return "Tablet{" + "tamanoDiagonalPantalla=" + tamanoDiagonalPantalla + ", capacidadPantalla=" + capacidadPantalla + ", tamanoMemoriaNAND=" + tamanoMemoriaNAND + ", sistemaOperativo=" + sistemaOperativo + '}';
+    }
+
 }

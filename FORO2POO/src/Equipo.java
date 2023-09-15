@@ -45,5 +45,10 @@ public class Equipo {
     public void setMicroprocesador(String microprocesador) {
         this.microprocesador = microprocesador;
     }
-     
+
+    @Override
+    public String toString() {
+        return "Equipo{" + "fabricante=" + fabricante + ", modelo=" + modelo + ", microprocesador=" + microprocesador + '}';
+    }
+    
 }

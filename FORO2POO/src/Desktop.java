@@ -55,5 +55,10 @@ public class Desktop extends Equipo{
     public void setCapacidadDiscoDuro(int capacidadDiscoDuro) {
         this.capacidadDiscoDuro = capacidadDiscoDuro;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Desktop{" + "memoria=" + memoria + ", tarjetaGrafica=" + tarjetaGrafica + ", tamanoTorre=" + tamanoTorre + ", capacidadDiscoDuro=" + capacidadDiscoDuro + '}';
+    }
+   
 }
