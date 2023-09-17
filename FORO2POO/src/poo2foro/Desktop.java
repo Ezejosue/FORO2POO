@@ -1,3 +1,5 @@
+package poo2foro;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,21 +10,27 @@
  *
  * @author HP
  */
-public class Desktop extends Equipo{
-    
+public class Desktop extends Equipo {
+
     //Atributos
     private int memoria;
     private String tarjetaGrafica;
     private String tamanoTorre;
     private int capacidadDiscoDuro;
 
-    public Desktop(int memoria, String tarjetaGrafica, String tamanoTorre, int capacidadDiscoDuro, String fabricante, String modelo, String microprocesador) {
+    public Desktop(String fabricante, String modelo, String microprocesador) {
+        super(fabricante, modelo, microprocesador);
+    }
+
+    public Desktop( String fabricante, String modelo, String microprocesador, int memoria, String tarjetaGrafica, String tamanoTorre, int capacidadDiscoDuro) {
         super(fabricante, modelo, microprocesador);
         this.memoria = memoria;
         this.tarjetaGrafica = tarjetaGrafica;
         this.tamanoTorre = tamanoTorre;
         this.capacidadDiscoDuro = capacidadDiscoDuro;
     }
+
+   
 
     public int getMemoria() {
         return memoria;
@@ -58,7 +66,15 @@ public class Desktop extends Equipo{
 
     @Override
     public String toString() {
-        return "Desktop{" + "memoria=" + memoria + ", tarjetaGrafica=" + tarjetaGrafica + ", tamanoTorre=" + tamanoTorre + ", capacidadDiscoDuro=" + capacidadDiscoDuro + '}';
+        return String.format(
+                "----- Desktop -----\n"
+                + "Fabricante: %s\n"
+                + "Modelo: %s\n"
+                + "Microprocesador: %s\n"
+                + "Memoria: %d GB\n"
+                + "Tarjeta gráfica: %s\n"
+                + "Tamaño de torre: %s\n"
+                + "Capacidad de disco duro: %d GB\n",
+                getFabricante(), getModelo(), getMicroprocesador(), getMemoria(), getTarjetaGrafica(), getTamanoTorre(), getCapacidadDiscoDuro());
     }
-   
 }

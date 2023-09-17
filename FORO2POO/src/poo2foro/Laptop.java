@@ -1,3 +1,5 @@
+package poo2foro;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,15 +10,15 @@
  *
  * @author HP
  */
-public class Laptop extends Equipo{
-    
+public class Laptop extends Equipo {
+
     //Atributos
     private int memoria;
     private double tamanoPantalla;
     private int capacidadDiscoDuro;
 
     //Constructor
-    public Laptop(int memoria, double tamanoPantalla, int capacidadDiscoDuro, String fabricante, String modelo, String microprocesador) {
+    public Laptop( String fabricante, String modelo, String microprocesador, int memoria, double tamanoPantalla, int capacidadDiscoDuro) {
         super(fabricante, modelo, microprocesador);
         this.memoria = memoria;
         this.tamanoPantalla = tamanoPantalla;
@@ -49,8 +51,14 @@ public class Laptop extends Equipo{
 
     @Override
     public String toString() {
-        return "Laptop{" + "memoria=" + memoria + ", tamanoPantalla=" + tamanoPantalla + ", capacidadDiscoDuro=" + capacidadDiscoDuro + '}';
+        return String.format(
+                "----- Laptop -----\n"
+                + "Fabricante: %s\n"
+                + "Modelo: %s\n"
+                + "Microprocesador: %s\n"
+                + "Memoria: %d GB\n"
+                + "Tamaño de pantalla: %.1f pulgadas\n"
+                + "Capacidad de disco duro: %d GB\n",
+                getFabricante(), getModelo(), getMicroprocesador(), getMemoria(), getTamanoPantalla(), getCapacidadDiscoDuro());
     }
-    
-    
 }

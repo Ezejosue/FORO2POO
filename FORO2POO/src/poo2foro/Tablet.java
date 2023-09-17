@@ -1,3 +1,5 @@
+package poo2foro;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,8 +10,8 @@
  *
  * @author HP
  */
-public class Tablet extends Equipo{
-    
+public class Tablet extends Equipo {
+
     //Atributos
     private double tamanoDiagonalPantalla;
     private String capacidadPantalla;
@@ -17,7 +19,7 @@ public class Tablet extends Equipo{
     private String sistemaOperativo;
 
     //Constructor
-    public Tablet(double tamanoDiagonalPantalla, String capacidadPantalla, int tamanoMemoriaNAND, String sistemaOperativo, String fabricante, String modelo, String microprocesador) {
+    public Tablet( String fabricante, String modelo, String microprocesador, double tamanoDiagonalPantalla, String capacidadPantalla, int tamanoMemoriaNAND, String sistemaOperativo) {
         super(fabricante, modelo, microprocesador);
         this.tamanoDiagonalPantalla = tamanoDiagonalPantalla;
         this.capacidadPantalla = capacidadPantalla;
@@ -59,7 +61,16 @@ public class Tablet extends Equipo{
 
     @Override
     public String toString() {
-        return "Tablet{" + "tamanoDiagonalPantalla=" + tamanoDiagonalPantalla + ", capacidadPantalla=" + capacidadPantalla + ", tamanoMemoriaNAND=" + tamanoMemoriaNAND + ", sistemaOperativo=" + sistemaOperativo + '}';
+        return String.format(
+                "----- Tablet -----\n"
+                + "Fabricante: %s\n"
+                + "Modelo: %s\n"
+                + "Microprocesador: %s\n"
+                + "Tamaño diagonal de pantalla: %.2f pulgadas\n"
+                + "Capacidad de pantalla: %s\n"
+                + "Tamaño de memoria NAND: %d GB\n"
+                + "Sistema Operativo: %s\n",
+                getFabricante(), getModelo(), getMicroprocesador(), getTamanoDiagonalPantalla(), getCapacidadPantalla(), getTamanoMemoriaNAND(), getSistemaOperativo());
     }
 
 }
