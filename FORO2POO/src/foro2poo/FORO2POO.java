@@ -23,6 +23,10 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.JOptionPane;
+import java.awt.*;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -166,5 +170,94 @@ public class FORO2POO extends JApplet {
     }
 
     public static void verEquipos() {
+        String[] opciones = {"Desktop", "Laptop", "Tablet"};
+        int tipoEquipo = JOptionPane.showOptionDialog(null, "Seleccione el tipo de equipo que desea ver", "Vista de Equipos", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opciones, opciones[0]);
+
+        DefaultTableModel modeloTabla = new DefaultTableModel();
+
+        switch (tipoEquipo) {
+            case 0: // Desktop
+                modeloTabla.addColumn("Fabricante");
+                modeloTabla.addColumn("Modelo");
+                modeloTabla.addColumn("Microprocesador");
+                modeloTabla.addColumn("Memoria (GB)");
+                modeloTabla.addColumn("Tarjeta Gráfica");
+                modeloTabla.addColumn("Tamaño Torre");
+                modeloTabla.addColumn("Capacidad Disco Duro (GB)");
+
+                for (Desktop desktop : desktops) {
+                    modeloTabla.addRow(new Object[]{
+                        desktop.getFabricante(),
+                        desktop.getModelo(),
+                        desktop.getMicroprocesador(),
+                        desktop.getMemoria(),
+                        desktop.getTarjetaGrafica(),
+                        desktop.getTamanoTorre(),
+                        desktop.getCapacidadDiscoDuro()
+                    });
+                }
+                break;
+
+            case 1: // Laptop
+                modeloTabla.addColumn("Fabricante");
+                modeloTabla.addColumn("Modelo");
+                modeloTabla.addColumn("Microprocesador");
+                modeloTabla.addColumn("Memoria (GB)");
+                modeloTabla.addColumn("Tamaño Pantalla (pulgadas)");
+                modeloTabla.addColumn("Capacidad Disco Duro (GB)");
+
+                for (Laptop laptop : laptops) {
+                    modeloTabla.addRow(new Object[]{
+                        laptop.getFabricante(),
+                        laptop.getModelo(),
+                        laptop.getMicroprocesador(),
+                        laptop.getMemoria(),
+                        laptop.getTamanoPantalla(),
+                        laptop.getCapacidadDiscoDuro()
+                    });
+                }
+                break;
+
+            case 2: // Tablet
+                modeloTabla.addColumn("Fabricante");
+                modeloTabla.addColumn("Modelo");
+                modeloTabla.addColumn("Microprocesador");
+                modeloTabla.addColumn("Tamaño Diagonal Pantalla (pulgadas)");
+                modeloTabla.addColumn("Capacidad Pantalla");
+                modeloTabla.addColumn("Tamaño Memoria NAND (GB)");
+                modeloTabla.addColumn("Sistema Operativo");
+
+                for (Tablet tablet : tablets) {
+                    modeloTabla.addRow(new Object[]{
+                        tablet.getFabricante(),
+                        tablet.getModelo(),
+                        tablet.getMicroprocesador(),
+                        tablet.getTamanoDiagonalPantalla(),
+                        tablet.getCapacidadPantalla(),
+                        tablet.getTamanoMemoriaNAND(),
+                        tablet.getSistemaOperativo()
+                    });
+                }
+                break;
+
+            default:
+                JOptionPane.showMessageDialog(null, "Opción no válida");
+        }
+
+        // Crear una JTable con el modelo de tabla
+        SwingUtilities.invokeLater(() -> {
+        JTable table = new JTable(modeloTabla);
+
+        // Crear un JScrollPane para la tabla
+        JScrollPane scrollPane = new JScrollPane(table);
+
+        // Crear un JFrame para mostrar la tabla
+        JFrame frame = new JFrame("Lista de Equipos");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.add(scrollPane);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        });
     }
 }
