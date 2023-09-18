@@ -24,6 +24,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.JOptionPane;
 import java.awt.*;
+import javax.swing.JDialog;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -245,19 +246,19 @@ public class FORO2POO extends JApplet {
         }
 
         // Crear una JTable con el modelo de tabla
-        SwingUtilities.invokeLater(() -> {
+        // Crear una JTable con el modelo de tabla
         JTable table = new JTable(modeloTabla);
 
         // Crear un JScrollPane para la tabla
         JScrollPane scrollPane = new JScrollPane(table);
 
-        // Crear un JFrame para mostrar la tabla
-        JFrame frame = new JFrame("Lista de Equipos");
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.add(scrollPane);
-        frame.pack();
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
-        });
+        // Crear un JDialog para mostrar la tabla
+        JDialog dialog = new JDialog();
+        dialog.setTitle("Lista de Equipos");
+        dialog.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        dialog.add(scrollPane);
+        dialog.pack();
+        dialog.setVisible(true);
+        dialog.setLocationRelativeTo(null);
     }
 }
